@@ -14,7 +14,7 @@ app.get(('/'), async(req,res)=>{
 
 app.post('/register',async(req,res)=>{
     const data = new users(req.body);
-    const result = data.save();
+    const result =await data.save();
     res.send(result);
     console.log(data);
 })
