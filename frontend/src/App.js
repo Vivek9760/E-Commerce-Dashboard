@@ -4,6 +4,7 @@ import Footer from './Components/footer';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Signup from './Components/signup'
 import PrivateComponent from './Components/PrivateComponent';
+import Login from './Components/Login.js';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='/profile' element={<h1>Profile Component</h1>} />
       </Route>
       <Route path='/signup' element={<Signup />} />
+      <Route path='/login' element={<Login />} />
       </Routes>
       </BrowserRouter>
       <Footer />
