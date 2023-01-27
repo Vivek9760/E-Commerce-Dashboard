@@ -11,6 +11,25 @@
   padding: 5px;
 }
 
+#nav-product{
+  margin-left: 5%;
+}
+
+.nav-ul2{
+  list-style: none;
+  display: flex;
+  justify-content:flex-end;
+  background-color: #61dafb;
+  margin: 0px;
+  padding: 5px;
+}
+.nav-ul2 li a{
+  color: #ffffff;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+}
+
 .nav-ul li a{
   color: #ffffff;
   padding: 5px;
@@ -59,3 +78,12 @@ cursor: pointer;
 fieldset{
   margin: 10px;
 }
+
+.logo{
+  /* float: left; */
+  position: absolute;
+  top:0.4%;
+  left: 1%;
+  width: 30px;
+  border-radius: 50%;
+  }

@@ -14,6 +14,7 @@ const Login = () =>{
         }
     });
     result = await result.json()
+    console.log(result);
     if(result.name){
      localStorage.setItem('user',JSON.stringify(result));
         navigate('/')
@@ -22,7 +23,7 @@ const Login = () =>{
         alert('Enter correct details')
     }
    }
-   
+
    useEffect(()=>{
     const auth = localStorage.getItem('user');
     if(auth){
