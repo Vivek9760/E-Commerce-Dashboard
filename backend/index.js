@@ -25,10 +25,10 @@ app.post(('/login'), async(req,res)=>{
     if(result){
         res.send(result);
     }else{
-        res.send("no user found")
+        res.send(false)
     }
 }else{
-    res.send("no user found")
+    res.send(false)
 }
 })
 
