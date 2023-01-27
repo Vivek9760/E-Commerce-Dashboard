@@ -12,8 +12,7 @@ app.post('/register',async(req,res)=>{
     const data = new user(req.body);
     let result =await data.save();
     result = result.toObject();
-    delete result.password
-
+    delete result.password;
     res.send(result);
     console.log(data);
 })
