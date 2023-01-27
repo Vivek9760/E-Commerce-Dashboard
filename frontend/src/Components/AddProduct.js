@@ -19,7 +19,7 @@ const AddProduct = () =>{
     headers:{
         "Content-Type":"application/json"
     }
-   })
+   });
 
    console.log(await result.json());
    setName('');
@@ -27,8 +27,6 @@ const AddProduct = () =>{
    setCompany('');
    setPrice('');
    }
-   
-   
     
     return(
         <div className="add-product">
