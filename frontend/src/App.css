@@ -94,3 +94,29 @@ fieldset{
     margin-top: -20px;
     margin-left: 25px;
   }
+
+  .product-list{
+    border: 3px solid skyblue;
+    border-collapse: collapse;
+    margin: auto;
+    width: 60%;
+   text-align: center;
+  }
+
+  /* .list-container{
+    border: 1px solid red; 
+    height: 80vh;
+  } */
+
+  .list-heading{
+    font-weight: bold;
+    color: red;
+    border: 3px solid skyblue;
+  }
+  
+  td{
+    border: 3px solid skyblue;
+    height: 50px;
+  }
+
+
