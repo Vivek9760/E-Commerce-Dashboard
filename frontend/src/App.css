@@ -87,3 +87,10 @@ fieldset{
   width: 30px;
   border-radius: 50%;
   }
+
+  .invalid-input{
+    color: red;
+    display: block;
+    margin-top: -20px;
+    margin-left: 25px;
+  }
