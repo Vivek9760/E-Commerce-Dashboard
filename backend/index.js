@@ -32,10 +32,20 @@ app.post('/login', async(req,res)=>{
 }
 });
 
+
 app.post('/add-product',async(req,res)=>{
     let newProduct =new product(req.body);
     let result = await newProduct.save();
     res.send(result);
+});
+
+app.get('/products',async(req,res)=>{
+    let result =await product.find(req.body);
+    if(result.length){
+    res.send(result);
+    }else{
+        res.send({result:"No product found"});
+    }
 });
 
 app.listen(5000);
