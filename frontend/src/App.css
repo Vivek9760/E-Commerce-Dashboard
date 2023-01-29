@@ -114,9 +114,14 @@ fieldset{
     border: 3px solid skyblue;
   }
   
-  td{
+  .list-data{
     border: 3px solid skyblue;
     height: 50px;
+  }
+
+  .delete-btn{
+    cursor: pointer;
+    margin-right: 10px ;
   }
 
 
