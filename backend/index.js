@@ -18,6 +18,7 @@ app.post('/register',async(req,res)=>{
     console.log(data);
 });
 
+
 app.post('/login', async(req,res)=>{
     if(req.body.password && req.body.email){
     let result = await user.findOne(req.body).select("-password");
@@ -39,6 +40,7 @@ app.post('/add-product',async(req,res)=>{
     res.send(result);
 });
 
+
 app.get('/products',async(req,res)=>{
     let result =await product.find(req.body);
     if(result.length){
@@ -46,6 +48,12 @@ app.get('/products',async(req,res)=>{
     }else{
         res.send({result:"No product found"});
     }
+});
+
+app.delete('/delete/:id',async(req,res)=>{
+    const result = await product.deleteOne({_id:req.params.id});
+    res.send(req.params.id);
+    console.log(result.deletedCount)
 });
 
 app.listen(5000);
