@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ProductList = () => {
     const [products,setProducts] = useState([]);
+    // const [search,setSearch] = useState("");
 
     useEffect(()=>{
             getProducts(); 
@@ -26,7 +27,21 @@ const ProductList = () => {
         if(result){
         getProducts();
         }
-      
+    }
+
+    const handleSearch = async(e) => {
+    // setSearch(e.target.value);
+    // console.log(e.target.value);
+    let key = e.target.value;
+    if(key){
+    let result = await fetch(`http://localhost:5000/search/${key}`,{
+        method:'get'
+    })
+
+    result = await result.json();
+    setProducts(result);
+    }else{getProducts();}
+
     }
 
     return(
@@ -34,6 +49,10 @@ const ProductList = () => {
     <table  className="product-list">
         <caption><h1>Product List</h1></caption>
         <thead>
+        <tr className="search-background">
+         <td colSpan="5" className="search-td"> <input className="search-bar" type="text" onChange={(e)=>{handleSearch(e)}} placeholder="Search for product, brand and more"/></td> 
+         {/* <td><button className="search-btn">Search</button></td> */}
+        </tr>
         <tr className="list-heading">
                 <td className="list-data">S.No.</td>
                 <td className="list-data">Name</td>
