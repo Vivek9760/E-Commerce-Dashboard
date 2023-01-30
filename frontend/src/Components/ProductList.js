@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ProductList = () => {
     const [products,setProducts] = useState([]);
-    // const [search,setSearch] = useState("");
 
     useEffect(()=>{
             getProducts(); 
@@ -30,7 +29,6 @@ const ProductList = () => {
     }
 
     const handleSearch = async(e) => {
-    // setSearch(e.target.value);
     // console.log(e.target.value);
     let key = e.target.value;
     if(key){
@@ -51,7 +49,6 @@ const ProductList = () => {
         <thead>
         <tr className="search-background">
          <td colSpan="5" className="search-td"> <input className="search-bar" type="text" onChange={(e)=>{handleSearch(e)}} placeholder="Search for product, brand and more"/></td> 
-         {/* <td><button className="search-btn">Search</button></td> */}
         </tr>
         <tr className="list-heading">
                 <td className="list-data">S.No.</td>
