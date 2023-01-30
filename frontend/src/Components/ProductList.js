@@ -19,7 +19,7 @@ const ProductList = () => {
 
     const deleteProduct = async(id) => {
 
-        let result = await fetch(`http://localhost:5000/delete/${id}`,{
+        let result = await fetch(`http://localhost:5000/product/${id}`,{
             method:"delete"
         });
         // console.log(result)
@@ -52,8 +52,10 @@ const ProductList = () => {
                 <td className="list-data">{item.name}</td>
                 <td className="list-data">{item.price}</td>
                 <td className="list-data">{item.category}</td>
-                <td><span title="delete" className="delete-btn" onClick={()=>{deleteProduct(item._id)}}>💥</span>
-                <Link title="update" to={`/update/${item._id}`}>♻</Link></td>
+                <td className="list-data">
+                    <span title="delete" className="delete-btn" onClick={()=>{deleteProduct(item._id)}}>💥</span>
+                    <Link title="update" to={`/update/${item._id}`}>♻</Link>
+                </td>
                 </tr>
                 )
             })

@@ -50,10 +50,19 @@ app.get('/products',async(req,res)=>{
     }
 });
 
-app.delete('/delete/:id',async(req,res)=>{
+app.delete('/product/:id',async(req,res)=>{
     const result = await product.deleteOne({_id:req.params.id});
     res.send(req.params.id);
-    console.log(result.deletedCount)
+    // console.log(result.deletedCount)
 });
+
+app.get('/product/:id', async(req,res)=>{
+    const result = await product.findOne({_id:req.params.id})
+    if(result){
+    res.send(result)
+    }else{
+        res.send({result:"No record find"})
+    }
+})
 
 app.listen(5000);
