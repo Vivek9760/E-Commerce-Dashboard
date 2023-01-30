@@ -1,5 +1,6 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const UpdateProduct = () =>{
      
@@ -7,12 +8,31 @@ const UpdateProduct = () =>{
     const [price,setPrice]=useState('');
     const [category,setCategory]=useState('');
     const [company,setCompany]=useState('');
+    const params = useParams()
 
 
    const updateProduct = async() =>{
     console.warn(name,price,category,company);
+   }
+   
+   const id = params.id;
+   const getProduct = async() =>{
+    let result = await fetch(`http://localhost:5000/product/${id}`,{
+        method:'get'
+    })
+    result = await result.json();
+    if(result){
+        setName(result.name);
+        setPrice(result.price);
+        setCategory(result.category);
+        setCompany(result.company);
+    }
 
    }
+
+   useEffect(()=>{
+    getProduct();
+   },[])
     
     return(
         <div className="add-product">
