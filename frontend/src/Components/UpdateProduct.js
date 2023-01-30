@@ -16,6 +16,7 @@ const UpdateProduct = () =>{
    }
    
    const id = params.id;
+   
    const getProduct = async() =>{
     let result = await fetch(`http://localhost:5000/product/${id}`,{
         method:'get'
@@ -29,7 +30,6 @@ const UpdateProduct = () =>{
     }
 
    }
-
    useEffect(()=>{
     getProduct();
    },[])
