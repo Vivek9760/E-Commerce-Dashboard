@@ -76,10 +76,10 @@ app.put('/product/:id', async(req,res)=>{
 
 app.get('/search/:key', async (req,res)=>{
     const result = await product.find({
-       $or : [{name:{$regex : req.params.key}},
-              {price:{$regex : req.params.key}},
-              {category:{$regex : req.params.key}},
-              {company:{$regex : req.params.key}}
+       $or : [{name:{$regex : new RegExp(req.params.key,'i')}},   //for case insensitive method
+              {price:{$regex : req.params.key}},                  //for case sensitive
+              {category:{$regex : new RegExp(req.params.key,'i')}},
+              {company:{$regex : new RegExp(req.params.key,'i')}}
             ]
     })
     res.send(result)
