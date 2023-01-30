@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const UpdateProduct = () =>{
      
@@ -8,14 +8,27 @@ const UpdateProduct = () =>{
     const [price,setPrice]=useState('');
     const [category,setCategory]=useState('');
     const [company,setCompany]=useState('');
-    const params = useParams()
-
+    const params = useParams();
+    const navigate = useNavigate();
+    
+    const id = params.id;
 
    const updateProduct = async() =>{
-    console.warn(name,price,category,company);
+
+    let result = await fetch(`http://localhost:5000/product/${id}`,{
+        method:'put',
+        body:JSON.stringify({name,price,category,company}),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    });
+
+    // result = await result.json();    
+    // console.log(result)
+    
+    navigate('/')
    }
    
-   const id = params.id;
    
    const getProduct = async() =>{
     let result = await fetch(`http://localhost:5000/product/${id}`,{
@@ -28,8 +41,8 @@ const UpdateProduct = () =>{
         setCategory(result.category);
         setCompany(result.company);
     }
-
    }
+
    useEffect(()=>{
     getProduct();
    },[])
