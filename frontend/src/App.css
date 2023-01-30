@@ -147,3 +147,8 @@ fieldset{
   .search-background{
     background-color: skyblue;
   }
+
+  .upper-body{
+    height: 90vh;
+    overflow: auto;
+  }
