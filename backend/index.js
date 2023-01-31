@@ -31,7 +31,7 @@ app.post('/login', async(req,res)=>{
     let user = await User.findOne(req.body).select("-password");
     // console.log(user);
     if(user){
-        jwt.sign({user},jwtKey,{expiresIn:"2h"},(err,token)=>{
+        jwt.sign({user},jwtKey,{expiresIn:"1h"},(err,token)=>{
             if(err){
                 res.send({user:"something went wrong"});
             }
