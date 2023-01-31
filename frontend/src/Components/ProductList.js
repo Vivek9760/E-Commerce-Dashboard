@@ -14,6 +14,13 @@ const ProductList = () => {
 
         let result =await fetch("http://localhost:5000/products");
         result =await result.json();
+
+        // result = result.filter((item)=>{
+        //     return (
+        //         JSON.parse(localStorage.getItem('user'))._id === item.userId
+        //         )}
+        //         )
+        // debugger;
         setProducts(result)
     }
 
