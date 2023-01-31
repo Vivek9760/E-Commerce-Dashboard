@@ -20,12 +20,12 @@ const ProductList = () => {
         });
         result =await result.json();
 
-        // result = result.filter((item)=>{
-        //     return (
-        //         JSON.parse(localStorage.getItem('user'))._id === item.userId
-        //         )}
-        //         )
-        // debugger;
+        result = result.filter((item)=>{
+            return (
+                JSON.parse(localStorage.getItem('user'))._id === item.userId
+                )}
+                )
+        debugger;
         setProducts(result)
     }
 
@@ -55,6 +55,12 @@ const ProductList = () => {
     })
 
     result = await result.json();
+    result = result.filter((item)=>{
+        return (
+            JSON.parse(localStorage.getItem('user'))._id === item.userId
+            )}
+            )
+    debugger;
     setProducts(result);
     }else{getProducts();}
 
