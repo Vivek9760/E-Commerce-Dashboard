@@ -12,6 +12,7 @@ app.use(cors());
 
 
 app.post('/register',async(req,res)=>{
+    if(req.body.name && req.body.email && req.body.password){
     const data = new User(req.body);
     let user =await data.save();
     user = user.toObject();
@@ -22,7 +23,10 @@ app.post('/register',async(req,res)=>{
         }
     res.send({user,auth:token});
     console.log(data);
-})
+})}
+else{
+    res.send(false);
+}
 });
 
 
@@ -54,6 +58,7 @@ app.post('/add-product',verifyToken,async(req,res)=>{
 
 
 app.get('/products',verifyToken,async(req,res)=>{
+   
     let result =await product.find(req.body);
     if(result.length){
     res.send(result);
