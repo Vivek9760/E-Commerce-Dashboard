@@ -14,15 +14,17 @@ app.use(cors());
 app.post('/register',async(req,res)=>{
     if(req.body.name && req.body.email && req.body.password){
     const data = new User(req.body);
-    let user =await data.save();
+    let user = await data.save();
+    // console.log("before -- ",user)
     user = user.toObject();
+    // console.log("after -- ",user)
     delete user.password;
     jwt.sign({user},jwtKey,{expiresIn:"2h"},(err,token)=>{
         if(err){
             res.send({user:"something went wrong"});
         }
     res.send({user,auth:token});
-    console.log(data);
+    // console.log(data);
 })}
 else{
     res.send(false);
