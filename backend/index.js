@@ -4,6 +4,8 @@ const cors = require('cors');
 require('./db/config.js');
 const user = require("./db/user.js");
 const product = require('./db/product.js');
+const jwt = require('jsonwebtoken');
+const jwtkey = 'vivek';
 
 app.use(express.json());
 app.use(cors()); 
