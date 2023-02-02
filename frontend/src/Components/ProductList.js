@@ -25,7 +25,7 @@ const ProductList = () => {
                 JSON.parse(localStorage.getItem('user'))._id === item.userId
                 )}
                 )
-        debugger;
+        // debugger;
         setProducts(result)
     }
 

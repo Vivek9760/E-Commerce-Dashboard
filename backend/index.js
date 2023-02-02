@@ -104,6 +104,18 @@ app.get('/search/:key',verifyToken, async (req,res)=>{
     res.send(result)
 })
 
+app.delete('/deleteUser/:id',verifyToken,async(req,res)=>{
+    const user = await User.deleteOne({_id:req.params.id});
+    res.send(user)
+    // console.log(user)
+})
+
+app.delete('/deleteProducts/:id',verifyToken,async(req,res)=>{
+    const result = await product.deleteMany({userId:req.params.id});
+    res.send(req.params.id);
+    // console.log(result.deletedCount)
+});
+
 function verifyToken(req,res,next){                              //verifyToken function is a middleware here
     let token = req.headers['authorization'];
     if(token){
